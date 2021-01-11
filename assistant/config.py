@@ -34,4 +34,12 @@ class Config:
         837784353    # @rking_32
     )
     ADMINS = {}
+    LOAD_ADDITIONAL_PLUGINS = True
     MAX_MSG_LENGTH = 4096
+
+if Config.LOAD_ADDITIONAL_PLUGINS:
+    _LOG.info("Loading Additional Plugins...")
+    os.system("git clone --depth=1 https://github.com/Krishna-Singhal/Assistant-Plugins.git")
+    os.system("pip3 install -U pip && pip3 install -r Assistant-Plugins/requirements.txt")
+    os.system("mv Assistant-Plugins/plugins/ Userge-Assistant/plugins/ && rm -rf Assistant-Plugins/")
+    _LOG.info("UnOfficial Plugins Loaded Successfully!")
