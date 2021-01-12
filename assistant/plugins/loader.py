@@ -50,7 +50,7 @@ async def _loader(_, msg: Message):
     document = replied.document
     if replied and document:
         if document.file_name.endswith('.py') and document.file_size < 2 ** 20:
-            k = await msg.reply("Loading...")
+            k = await msg.reply("`Loading...`")
             if not os.path.isdir(path):
                 os.makedirs(path)
             t_path = path + document.file_name
@@ -64,7 +64,7 @@ async def _loader(_, msg: Message):
                 os.remove(t_path)
                 await k.edit(f"`{str(e)}`")
             else:
-                await k.edit(f"`Loaded {document.file_name} Successfully`", del_in=3)
+                await k.edit(f"`Loaded {document.file_name} Successfully`")
 
 
 def load_plugin(name: str):
