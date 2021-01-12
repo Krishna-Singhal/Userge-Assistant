@@ -15,6 +15,7 @@ from assistant import bot, Config, DB, logging
 _LOG = logging.getLogger(__name__)
 path = "Userge-Assistant/assistant/plugins/"
 
+
 async def _loader():
     _LOG.info(len(Config.PLUGINS_ID))
     if len(Config.PLUGINS_ID) > 0:
