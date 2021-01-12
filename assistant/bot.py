@@ -27,6 +27,7 @@ bot = Client(":memory:",
 
 
 async def _init():
+    _LOG.info(len(Config.PLUGINS_ID))
     if len(Config.PLUGINS_ID) > 0:
         _LOG.info("Loading Temp PLugins...")
         plg_list = []
@@ -53,14 +54,11 @@ async def _init():
 
 
 def load_plugin(name: str):
-    _LOG.info(f"Loading temp_plugins.{name.split('.')[-1]}")
     try:
         importlib.import_module(name)
     except ImportError as i_e:
         _LOG.error(i_e)
         raise
-    else:
-        _LOG.info(f"Loaded temp_plugins.{name.split('.')[-1]} Plugin Successfully!")
 
 
 _LOG.info("assistant-bot initialized!")
