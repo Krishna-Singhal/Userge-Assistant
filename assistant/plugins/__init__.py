@@ -50,4 +50,4 @@ def load_plugin(name: str):
         _LOG.error(i_e)
         raise
 
-asyncio.run(_loader)
+asyncio.run(_loader())
