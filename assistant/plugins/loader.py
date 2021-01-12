@@ -12,19 +12,18 @@ import importlib
 from pyrogram import filters
 from pyrogram.types import Message
 
-from assistant import bot, cus_filters, DB, logging
-from assistant.Config import PLUGINS_ID
+from assistant import bot, cus_filters, DB, logging, Config
 
 _LOG = logging.getLogger(__name__)
 path = "Userge-Assistant/temp_plugins/"
 
 
 async def _init():
-    if len(PLUGINS_ID) > 0:
+    if len(Config.PLUGINS_ID) > 0:
         _LOG.info("Loading Temp PLugins...")
         plg_list = []
-        msg = await bot.get_messages(DB.CHANNEL_ID, PLUGINS_ID)
-        for i in len(PLUGINS_ID):
+        msg = await bot.get_messages(DB.CHANNEL_ID, Config.PLUGINS_ID)
+        for i in len(Config.PLUGINS_ID):
             file = msg[i]
             document = file.document
             if file and document:
