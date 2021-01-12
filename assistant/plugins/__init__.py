@@ -6,6 +6,9 @@
 #
 # All rights reserved.
 
+import os
+import importlib
+
 from assistant import bot, Config, DB, logging
 
 _LOG = logging.getLogger(__name_)
