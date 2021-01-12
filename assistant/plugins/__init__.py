@@ -11,7 +11,7 @@ import importlib
 
 from assistant import bot, Config, DB, logging
 
-_LOG = logging.getLogger(__name_)
+_LOG = logging.getLogger(__name__)
 path = "Userge-Assistant/assistant/plugins/"
 
 async def _init():
