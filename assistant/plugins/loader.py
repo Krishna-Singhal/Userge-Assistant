@@ -34,9 +34,7 @@ async def _init():
                     if os.path.isfile(t_path):
                         os.remove(t_path)
                     await file.download(file_name=t_path)
-                    plugin = '.'.join(
-                        os.path.relpath(t_path, os.path.dirname(__file__)
-                    ).split('/'))[:-3]
+                    plugin = '.'.join(t_path.split('/')[:-3])
                     try:
                         load_plugin(plugin)
                     except Exception:
@@ -59,9 +57,7 @@ async def _loader(_, msg: Message):
             if os.path.isfile(t_path):
                 os.remove(t_path)
             await replied.download(file_name=t_path)
-            plugin = '.'.join(
-                os.path.relpath(t_path, os.path.dirname(__file__)
-            ).split('/'))[:-3]
+            plugin = '.'.join(t_path.split('/')[:-3])
             try:
                 load_plugin(plugin)
             except Exception as e:
