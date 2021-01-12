@@ -21,7 +21,7 @@ path = "Userge-Assistant/temp_plugins/"
 
 async def _init():
     if len(PLUGINS_ID) > 0:
-        _LOG.info("Loading Temp PLugins...)
+        _LOG.info("Loading Temp PLugins...")
         plg_list = []
         msg = await bot.get_messages(DB.CHANNEL_ID, PLUGINS_ID)
         for i in len(PLUGINS_ID):
