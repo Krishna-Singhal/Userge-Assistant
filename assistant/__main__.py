@@ -38,7 +38,8 @@ async def _loader():
                     plugin = '.'.join(t_path.split('/'))[:-3]
                     try:
                         load_plugin(plugin)
-                    except Exception:
+                    except Exception as e:
+                        _LOG.error(f"ERROR: {document.file_name[:-3]}: {str(e)}")
                         os.remove(t_path)
                     else:
                         plg_list.append(document.file_name[:-3])
